@@ -3,6 +3,7 @@ package com.optimagrowth.orm.model;
 import java.util.List;
 import java.util.UUID;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -30,6 +31,6 @@ public class Organization {
     @Column(name = "contact_phone", nullable = false)
     private String contactPhone;
 
-    @OneToMany(mappedBy = "organization")
+    @OneToMany(mappedBy = "organization", cascade = CascadeType.REMOVE)
     private List<License> licenses;
 }
